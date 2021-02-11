@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 7642980859614939925
-    second: Object_0
+    second: Objects_0
   - first:
       213: -174804484191063705
     second: Objects_1
@@ -163,16 +163,16 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Object_0
+      name: Objects_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 81
-        width: 75
-        height: 62
+        x: 6
+        y: 79
+        width: 77
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 61}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -649,10 +649,10 @@ TextureImporter:
       name: Objects_23
       rect:
         serializedVersion: 2
-        x: 7
-        y: 97
-        width: 76
-        height: 46
+        x: 6
+        y: 96
+        width: 77
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

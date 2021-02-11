@@ -11,7 +11,9 @@ public class CharacterMovement : MonoBehaviour
     Rigidbody2D rb2d; //Reference to the hero's rigid body
     Animator anim; //Reference to the hero's animator
 
-  
+    private bool isAttacking;
+    public float attackSpeed;
+    private float attackSpeedCooldown;
 
     void Start()
     {
@@ -35,27 +37,52 @@ public class CharacterMovement : MonoBehaviour
         //fixedDeltatime works well with fixedUpdate, which is ideal for Physics
         rb2d.velocity = new Vector2(direction.normalized.x * movementSpeed * Time.fixedDeltaTime, direction.normalized.y * movementSpeed * Time.fixedDeltaTime); //Method 2   
     }
+    private void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            rb2d.velocity = Vector2.zero; //Stop the hero from moving when attacking
+            attackSpeedCooldown = attackSpeed;
+            anim.SetBool("isAttacking", true);
+            isAttacking = true;
+        }
+
+        if (attackSpeedCooldown > 0) 
+        {
+            attackSpeedCooldown -= Time.deltaTime;
+        }
+        else //After performing an attack, wait for an amount of second before able to perform another attack.
+        {
+            isAttacking = false;
+            anim.SetBool("isAttacking", false);
+        }
+    }
     private void HeroAnimation()
     {
         anim.SetFloat("Magnitude", rb2d.velocity.magnitude);
         anim.SetFloat("Horizontal", direction.x);
-        anim.SetFloat("Vertical", direction.y);
-
-        //Check the last move of the hero and set the idle animation to fit to that direction
-        if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+        anim.SetFloat("Vertical", direction.y);        
+        
+           //Check the last move of the hero and set the idle animation to fit to that direction
+        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
         {
             anim.SetFloat("LastHorizontalMove", Input.GetAxisRaw("Horizontal"));
             anim.SetFloat("LastVerticalMove", Input.GetAxisRaw("Vertical"));
-        }
+        }        
     }
     // Update is called once per frame
     void Update()
     {
+        Attack(); // In the FixedUpdate, the animations got delayed.
+
         //PlayerInput();
     }
     private void FixedUpdate()
     {
-        HeroAnimation();
-        Move();
+        if (!isAttacking)
+        {
+            HeroAnimation();
+            Move();
+        }
     }
 }
