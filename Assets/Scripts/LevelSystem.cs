@@ -33,6 +33,11 @@ public class LevelSystem
         if (OnExperienceChanged != null) OnExperienceChanged(this, EventArgs.Empty);
     }
 
+    public void AddExperience()
+    {
+        LevelUp(50);
+    }
+
     public int GetLevelNumber()
     {
         return level;

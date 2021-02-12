@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class LevelWindow : MonoBehaviour
 {
@@ -14,15 +15,14 @@ public class LevelWindow : MonoBehaviour
 
     private void Start()
     {
-        Button addExperienceBtn = addExperienceButton.GetComponent<Button>();
-        addExperienceBtn.onClick.AddListener(levelSystem.LevelUp(50));
+        addExperienceButton = transform.Find("ExperienceAddBtn50").GetComponent<Button>();
     }
     private void Awake()
     {
         levelText = transform.Find("LevelTxt").GetComponent<Text>();
         experienceBarImage = transform.Find("ExperienceBar").Find("Bar").GetComponent<Image>();
 
-        transform.Find("ExperienceAddBtn50").GetComponent<Button>().onClick = levelSystem.LevelUp(50);
+        addExperienceButton.onClick.AddListener(() => levelSystem.AddExperience());
     }
 
     private void SetExperienceBarSize(float experienceNormalized)
@@ -35,7 +35,7 @@ public class LevelWindow : MonoBehaviour
         levelText.text = "LEVEL\n" + (levelNumber + 1);
     }
 
-    private void SetLevelSystem(LevelSystem levelSystem)
+    public void SetLevelSystem(LevelSystem levelSystem)
     {
         //Set the LevelSystem object
         this.levelSystem = levelSystem;
