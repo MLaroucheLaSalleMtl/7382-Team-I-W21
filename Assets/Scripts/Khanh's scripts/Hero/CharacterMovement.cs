@@ -13,13 +13,14 @@ public class CharacterMovement : MonoBehaviour
 
     private bool isAttacking;
     public float attackSpeed;
-    private float attackSpeedCooldown;
+    private float attackCooldown;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>(); //Cache the rigid body component
         anim = GetComponent<Animator>(); //Cache the rigid body component        
     }
+    
 
     public void PlayerInput(InputAction.CallbackContext context)
     {
@@ -42,14 +43,14 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             rb2d.velocity = Vector2.zero; //Stop the hero from moving when attacking
-            attackSpeedCooldown = attackSpeed;
+            attackCooldown = attackSpeed;
             anim.SetBool("isAttacking", true);
             isAttacking = true;
         }
 
-        if (attackSpeedCooldown > 0) 
+        if (attackCooldown > 0) 
         {
-            attackSpeedCooldown -= Time.deltaTime;
+            attackCooldown -= Time.deltaTime;
         }
         else //After performing an attack, wait for an amount of second before able to perform another attack.
         {

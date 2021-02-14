@@ -14,6 +14,11 @@ public class ChaseBehaviour : StateMachineBehaviour
     [SerializeField] private float maximumDistanceToTarget; //The distance that enemy can start chasing
     [SerializeField] private float minimumDistanceToTarget;
     [SerializeField] private float movementSpeed; //Speed of the enemy
+
+    private bool isAttacking;
+    [SerializeField] private float attackRange;
+    [SerializeField] private float attackSpeed;
+    private float attackCooldown;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -44,8 +49,15 @@ public class ChaseBehaviour : StateMachineBehaviour
                 animator.SetBool("isChasing", false);
                 animator.SetBool("isPatrolling", true);
             }                        
-        }                        
+        }
+
+        float rangeToAttack = Vector2.Distance(animator.transform.position, target.position);        
+
+        if (rangeToAttack <= attackRange)
+        {
+            attackCooldown = attackSpeed;
+            isAttacking = true;
+            animator.SetBool("isAttacking", true);
+        }
     }
-  
-   
 }

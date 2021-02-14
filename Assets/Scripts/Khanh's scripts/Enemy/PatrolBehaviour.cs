@@ -46,6 +46,10 @@ public class PatrolBehaviour : StateMachineBehaviour
 
         if (Vector3.Distance(target.position, animator.transform.position) <= maximumDistanceToTarget && Vector3.Distance(target.position, animator.transform.position) > minimumDistanceToTarget)
         {
+            changeDirection = target.position.x - animator.transform.position.x; //The value from this calculation is either negative or positive, if less than -0.1, facing left. If bigger than 0.1, facing right.
+            animator.transform.position = Vector3.MoveTowards(animator.transform.position, target.transform.position, movementSpeed * Time.deltaTime);
+            //The MoveTowards function allows the enemy to chase the hero. It takes the enemy's and hero's position and the enemy's movement speed.
+            animator.SetFloat("Horizontal", changeDirection);
             //The enemy only chase within a certain distance.
             //If the distance between enemy and hero is less than the minimmumDistanceToTarget, the enemy will stop chasing, which means it will not push the hero.
             animator.SetBool("isChasing", true); //Trigger the bool to true to allow animations                 
