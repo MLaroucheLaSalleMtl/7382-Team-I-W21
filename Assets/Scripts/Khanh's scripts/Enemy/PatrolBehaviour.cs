@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PatrolBehaviour : StateMachineBehaviour
 {
-    [SerializeField] private float maximumDistanceToTarget; //The distance that enemy can start chasing
-    [SerializeField] private float minimumDistanceToTarget;
+    [SerializeField] private float chaseRange; //The distance that enemy can start chasing
+    [SerializeField] private float attackRange;
     private Transform target;
 
     public float movementSpeed;
@@ -44,7 +44,7 @@ public class PatrolBehaviour : StateMachineBehaviour
             }            
         }
 
-        if (Vector3.Distance(target.position, animator.transform.position) <= maximumDistanceToTarget && Vector3.Distance(target.position, animator.transform.position) > minimumDistanceToTarget)
+        if (Vector3.Distance(target.position, animator.transform.position) <= chaseRange && Vector3.Distance(target.position, animator.transform.position) > attackRange)
         {
             changeDirection = target.position.x - animator.transform.position.x; //The value from this calculation is either negative or positive, if less than -0.1, facing left. If bigger than 0.1, facing right.
             animator.transform.position = Vector3.MoveTowards(animator.transform.position, target.transform.position, movementSpeed * Time.deltaTime);

@@ -7,9 +7,8 @@ public class AttackBehaviour : StateMachineBehaviour
     private Transform target;
     private bool isAttacking;
     [SerializeField] private float attackRange;
-    [SerializeField] private float attackSpeed;
-    [SerializeField] private float minimumDistanceToTarget;
-    public float attackCooldown;
+    [SerializeField] private float attackDelay;
+    private float lastAttackTime;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -19,26 +18,26 @@ public class AttackBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        float minimumDistanceToTarget = Vector2.Distance(animator.transform.position, target.position);
+        float distanceToPlayer = Vector2.Distance(animator.transform.position, target.position);  
         
-        if (minimumDistanceToTarget <= attackRange)
-        {   
-            attackCooldown = attackSpeed;
-            isAttacking = true;           
-        }
-
-        if(isAttacking)
+        if (distanceToPlayer <= attackRange) //Check the distance between the enemy and the hero
         {
-            if (attackCooldown > 0)
+            if (Time.time > lastAttackTime + attackDelay) //Check to see if the enemy can perform another attack by checking if the time has passed enough since the last attack
             {
-                attackCooldown -= 0.5f;
+                lastAttackTime = Time.time; //Record the time the enemy last attack
+                isAttacking = true;
             }
-            else if (attackCooldown <= 0 || minimumDistanceToTarget > attackRange) //After performing an attack, wait for an amount of second before able to perform another attack.
+            else //Return to the walking state while waiting for the next attack
             {
                 isAttacking = false;
                 animator.SetBool("isAttacking", false);
             }
         }
-        
+
+        if(distanceToPlayer > attackRange) //Avoid the enemy stucks in the attack animation when the hero moves out of the range while the enemy is attacking.
+        {
+            isAttacking = false;
+            animator.SetBool("isAttacking", false);
+        }
     }
 }

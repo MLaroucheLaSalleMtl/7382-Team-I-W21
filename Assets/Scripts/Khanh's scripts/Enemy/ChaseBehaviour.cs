@@ -9,16 +9,13 @@ public class ChaseBehaviour : StateMachineBehaviour
     [SerializeField] private Transform originalPosition; // The position where the enemy originally stay
 
     private float changeDirection; //A variable that will indicate the enemy's direction
-    private float returnToOriginalPosition;
 
-    [SerializeField] private float maximumDistanceToTarget; //The distance that enemy can start chasing
-    [SerializeField] private float minimumDistanceToTarget;
+    [SerializeField] private float chaseRange; //The distance that enemy can start chasing
     [SerializeField] private float movementSpeed; //Speed of the enemy
 
-    private bool isAttacking;
     [SerializeField] private float attackRange;
-    [SerializeField] private float attackSpeed;
-    private float attackCooldown;
+    [SerializeField] private float attackDelay; 
+    private float lastAttackTime;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -30,7 +27,7 @@ public class ChaseBehaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        if (Vector3.Distance(target.position, animator.transform.position) <= maximumDistanceToTarget && Vector3.Distance(target.position, animator.transform.position) > minimumDistanceToTarget)
+        if (Vector3.Distance(target.position, animator.transform.position) <= chaseRange && Vector3.Distance(target.position, animator.transform.position) > attackRange)
         {
             changeDirection = target.position.x - animator.transform.position.x; //The value from this calculation is either negative or positive, if less than -0.1, facing left. If bigger than 0.1, facing right.
             animator.transform.position = Vector3.MoveTowards(animator.transform.position, target.transform.position, movementSpeed * Time.deltaTime);
@@ -38,26 +35,28 @@ public class ChaseBehaviour : StateMachineBehaviour
             animator.SetFloat("Horizontal", changeDirection);
         }    
 
-        if(Vector3.Distance(target.position, animator.transform.position) > maximumDistanceToTarget)
+        if(Vector3.Distance(target.position, animator.transform.position) > chaseRange) //If the hero is so far away, return to the original position.
         {
-            returnToOriginalPosition = originalPosition.position.x - animator.transform.position.x;
-            animator.SetFloat("Horizontal", returnToOriginalPosition);
+            changeDirection = originalPosition.position.x - animator.transform.position.x;
+            animator.SetFloat("Horizontal", changeDirection);
             animator.transform.position = Vector3.MoveTowards(animator.transform.position, originalPosition.position, movementSpeed * Time.deltaTime);
 
             if (Vector3.Distance(animator.transform.position, originalPosition.position) == 0)
-            {
+            {   
                 animator.SetBool("isChasing", false);
                 animator.SetBool("isPatrolling", true);
             }                        
         }
 
-        float rangeToAttack = Vector2.Distance(animator.transform.position, target.position);        
+        float distanceToPlayer = Vector2.Distance(animator.transform.position, target.position);        
 
-        if (rangeToAttack <= attackRange)
+        if (distanceToPlayer <= attackRange) //Check the distance between the enemy and the hero
         {
-            attackCooldown = attackSpeed;
-            isAttacking = true;
-            animator.SetBool("isAttacking", true);
-        }
+            if(Time.time > lastAttackTime + attackDelay)//Check to see if the enemy can perform another attack by checking if the time has passed enough since the last attack
+            {
+                lastAttackTime = Time.time;//Record the time the enemy last attack
+                animator.SetBool("isAttacking", true);
+            }
+        }        
     }
 }
