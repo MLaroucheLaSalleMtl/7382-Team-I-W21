@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Terrain
+    uniqueID: 1461624569
+    locked: 0
+  - name: Trees
+    uniqueID: 2314320625
+    locked: 0
