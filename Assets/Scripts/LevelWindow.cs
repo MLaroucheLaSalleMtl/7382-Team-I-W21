@@ -17,20 +17,14 @@ public class LevelWindow : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-
         addExperienceButton = transform.Find("ExperienceAddBtn50").GetComponent<Button>();
-
         Button addExperienceBtn = addExperienceButton.GetComponent<Button>();
-        //addExperienceBtn.onClick.AddListener(levelSystem.LevelUp(50));
-
     }
     private void Awake()
     {
         levelText = transform.Find("LevelTxt").GetComponent<Text>();
         experienceBarImage = transform.Find("ExperienceBar").Find("Bar").GetComponent<Image>();
 
-
-        //transform.Find("ExperienceAddBtn50").GetComponent<Button>().onClick = levelSystem.LevelUp(50);
     }
     public void OnPointerClick(PointerEventData eventData)
     {
