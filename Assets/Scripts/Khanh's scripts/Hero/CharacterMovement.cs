@@ -8,6 +8,7 @@ public class CharacterMovement : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private float movementSpeed; //Hero's speed
     private Vector2 direction = new Vector2(); // Hero's direction
+    private Vector2 attackDirection = new Vector2(); //Hero's attack direction
     Rigidbody2D rb2d; //Reference to the hero's rigid body
     Animator anim; //Reference to the hero's animator
 
@@ -26,13 +27,18 @@ public class CharacterMovement : MonoBehaviour
     {
         direction = context.ReadValue<Vector2>(); //new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         //GetAxisRaw to prevent the hero to slide after release the button
+         
+    }
+    public void AttackInput(InputAction.CallbackContext context)
+    {
+        isAttacking = context.performed;
     }
 
     private void Move() 
     {
         //Vector2 heroPosition = new Vector2();
         //heroPosition += direction.normalized  * movementSpeed * Time.fixedDeltaTime;
-        //rb.velocity = heroPosition;  //Method 1
+        //rb2d.velocity = heroPosition;  //Method 1
 
         //Normalized to prevent hero from moving faster when pressing two directional keys at the same time.
         //fixedDeltatime works well with fixedUpdate, which is ideal for Physics
@@ -45,14 +51,17 @@ public class CharacterMovement : MonoBehaviour
             rb2d.velocity = Vector2.zero; //Stop the hero from moving when attacking
             attackCooldown = attackSpeed;
             anim.SetBool("isAttacking", true);
+            anim.SetFloat("AttackHorizontal", direction.x);
+            anim.SetFloat("AttackVertical", direction.y);
             isAttacking = true;
         }
 
-        if (attackCooldown > 0) 
+
+        if (attackCooldown > 0) //After performing an attack, wait for an amount of second before able to perform another attack.
         {
             attackCooldown -= Time.deltaTime;
         }
-        else //After performing an attack, wait for an amount of second before able to perform another attack.
+        else 
         {
             isAttacking = false;
             anim.SetBool("isAttacking", false);
@@ -60,21 +69,21 @@ public class CharacterMovement : MonoBehaviour
     }
     private void HeroAnimation()
     {
-        anim.SetFloat("Magnitude", rb2d.velocity.magnitude);
         anim.SetFloat("Horizontal", direction.x);
-        anim.SetFloat("Vertical", direction.y);        
+        anim.SetFloat("Vertical", direction.y);
+        anim.SetFloat("Magnitude", rb2d.velocity.magnitude);
         
-           //Check the last move of the hero and set the idle animation to fit to that direction
-        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
-        {
-            anim.SetFloat("LastHorizontalMove", Input.GetAxisRaw("Horizontal"));
-            anim.SetFloat("LastVerticalMove", Input.GetAxisRaw("Vertical"));
-        }        
+        //   //Check the last move of the hero and set the idle animation to fit to that direction
+        //if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+        //{
+        //    anim.SetFloat("LastHorizontalMove", Input.GetAxisRaw("Horizontal"));
+        //    anim.SetFloat("LastVerticalMove", Input.GetAxisRaw("Vertical"));
+        //}        
     }
     // Update is called once per frame
     void Update()
     {
-        Attack(); // In the FixedUpdate, the animations got delayed.
+        Attack(); // In the FixedUpdate, the animations get delayed.
 
         //PlayerInput();
     }

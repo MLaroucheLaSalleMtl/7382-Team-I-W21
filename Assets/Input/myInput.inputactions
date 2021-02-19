@@ -33,7 +33,7 @@
                     "name": "Attack",
                     "type": "PassThrough",
                     "id": "26254f9a-62be-4c9e-849c-c8cf0c7ed9d0",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Key",
                     "processors": "",
                     "interactions": ""
                 }
@@ -261,11 +261,11 @@
                 },
                 {
                     "name": "",
-                    "id": "90d39b74-d7f8-41f7-a6fa-de2f6d565ea2",
-                    "path": "<Mouse>/leftButton",
+                    "id": "937c1489-8ed2-4561-bae0-f5051d7937b3",
+                    "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
