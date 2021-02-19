@@ -15,14 +15,14 @@ public class LevelWindow : MonoBehaviour
     private void Start()
     {
         Button addExperienceBtn = addExperienceButton.GetComponent<Button>();
-        addExperienceBtn.onClick.AddListener(levelSystem.LevelUp(50));
+        //addExperienceBtn.onClick.AddListener(levelSystem.LevelUp(50));
     }
     private void Awake()
     {
         levelText = transform.Find("LevelTxt").GetComponent<Text>();
         experienceBarImage = transform.Find("ExperienceBar").Find("Bar").GetComponent<Image>();
 
-        transform.Find("ExperienceAddBtn50").GetComponent<Button>().onClick = levelSystem.LevelUp(50);
+        //transform.Find("ExperienceAddBtn50").GetComponent<Button>().onClick = levelSystem.LevelUp(50);
     }
 
     private void SetExperienceBarSize(float experienceNormalized)
