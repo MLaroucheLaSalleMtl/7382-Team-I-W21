@@ -44,6 +44,7 @@ public class CharacterMovement : MonoBehaviour
         //fixedDeltatime works well with fixedUpdate, which is ideal for Physics
         rb2d.velocity = new Vector2(direction.normalized.x * movementSpeed * Time.fixedDeltaTime, direction.normalized.y * movementSpeed * Time.fixedDeltaTime); //Method 2   
     }
+
     private void Attack()
     {
         if (Input.GetKeyDown(KeyCode.T))
