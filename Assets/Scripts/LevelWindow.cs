@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class LevelWindow : MonoBehaviour, IPointerClickHandler
+public class LevelWindow : MonoBehaviour
 {
     [SerializeField] private Button addExperienceButton;
 
@@ -26,9 +26,9 @@ public class LevelWindow : MonoBehaviour, IPointerClickHandler
         experienceBarImage = transform.Find("ExperienceBar").Find("Bar").GetComponent<Image>();
 
     }
-    public void OnPointerClick(PointerEventData eventData)
+    public void AddExperience()
     {
-
+        levelSystem.AddExperience(50);
     }
     private void SetExperienceBarSize(float experienceNormalized)
     {
