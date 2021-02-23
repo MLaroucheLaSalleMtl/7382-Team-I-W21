@@ -7,15 +7,21 @@ public class UI_SkillTree : MonoBehaviour
 {
     //[SerializeField] private Button powerUpButton;
     [SerializeField] private GameObject skillPanel;
+    [SerializeField] private GameObject meleeSkillPanel;
+    [SerializeField] private GameObject magicSkillPanel;
 
     private bool skillPanelIsActivated = true;
+    public static bool meleeSkillPanelOn = true;
+    public static bool magicSkillPanelOn = false;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
         //powerUpButton = transform.Find("BtnPowerUp").GetComponent<Button>();
         skillPanel.SetActive(skillPanelIsActivated);
+        skillPanel.SetActive(meleeSkillPanelOn);
+        skillPanel.SetActive(magicSkillPanelOn);
     }
 
     private void Awake()
@@ -30,6 +36,21 @@ public class UI_SkillTree : MonoBehaviour
             skillPanel.SetActive(!skillPanel.activeSelf);
         }
     }
+    public void SetMeleePanelOn()
+    {
+        meleeSkillPanel.SetActive(true);
+        meleeSkillPanelOn = true;
+        magicSkillPanel.SetActive(false);
+        magicSkillPanelOn = false;
+    }
+    public void SetMagicPanelOn()
+    {
+        magicSkillPanel.SetActive(true);
+        magicSkillPanelOn = true;
+        meleeSkillPanel.SetActive(false);
+        meleeSkillPanelOn = false;
+    }
+
     /*void ButtonClicked(int clickedNumber)
     {
         if (Input.GetMouseButtonDown(0))
