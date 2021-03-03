@@ -20,10 +20,10 @@ public class LevelSystem
     }
 
     //basic level system logic
-    public void LevelUp(int amount)
+    public void AddExperience(int amount)
     {
         experience += amount;
-        if (experience >= experienceToNextLevel)
+        while (experience >= experienceToNextLevel)
         {
             //gain enough exp to level up
             level++;

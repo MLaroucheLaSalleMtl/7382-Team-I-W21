@@ -10,7 +10,7 @@ public class Testing : MonoBehaviour
     {
         LevelSystem levelSystem = new LevelSystem();
         Debug.Log(levelSystem.GetLevelNumber());
-        levelSystem.LevelUp(50);
+        levelSystem.AddExperience(50);
 
         levelWindow.SetLevelSystem(levelSystem);
     }
