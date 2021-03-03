@@ -5,8 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+<<<<<<< HEAD
   - Weapon
   - Slime
+=======
+  - Coin
+>>>>>>> 67f475039381db8ffd5d45592649146a279e623a
   layers:
   - Default
   - TransparentFX
