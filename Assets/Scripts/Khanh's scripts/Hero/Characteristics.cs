@@ -5,8 +5,7 @@ using UnityEngine;
 public class Characteristics
 {
     //Physic damage calculation
-    private int maxWeaponAttack;
-    private int minWeaponAttack; 
+    private int weaponAttack;
     //Magic damage calculation
     private int magicAttack;
     //Hurt calculation
@@ -29,24 +28,26 @@ public class Characteristics
     {
         //1STR = 1 max weapon attack, 10 STR = 10 max weapon attack + 1 min weapon attack, given range 2~10)
         STR = this.STR;
-        this.STR = maxWeaponAttack;
-        minWeaponAttack = ((1 / 10) * STR);
+        weaponAttack = 2 * STR;
+        weaponDefense = 3 * STR;
 
         //DEX = this.DEX;
         INT = this.INT;
-        this.INT = magicAttack;
+        magicAttack = INT;
         magicDefense = INT * 10;
         //LUK = this.LUK;
     }
     //Get weapon attack
-    public void GetWeaponAttack()
+    public int GetWeaponAttack()
     {
-        int[] twa = {minWeaponAttack, maxWeaponAttack};
+        int twa = weaponAttack;
+        return weaponAttack;
     }
     
-    public void GetMagicAttack()
+    public int GetMagicAttack()
     {
         int tma = magicAttack;
+        return magicAttack;
     }
 
 }

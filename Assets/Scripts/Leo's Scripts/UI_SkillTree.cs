@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class UI_SkillTree : MonoBehaviour
 {
-    //[SerializeField] private Button powerUpButton;
+    //skill buttons
+    [SerializeField] private Button powerStrikeButton;
+
     [SerializeField] private GameObject skillPanel;
     [SerializeField] private GameObject meleeSkillPanel;
     [SerializeField] private GameObject magicSkillPanel;
+
+    
 
     private bool skillPanelIsActivated = true;
     public static bool meleeSkillPanelOn = true;
@@ -18,10 +22,11 @@ public class UI_SkillTree : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //powerUpButton = transform.Find("BtnPowerUp").GetComponent<Button>();
         skillPanel.SetActive(skillPanelIsActivated);
         skillPanel.SetActive(meleeSkillPanelOn);
         skillPanel.SetActive(magicSkillPanelOn);
+
+        
     }
 
     private void Awake()
@@ -49,6 +54,11 @@ public class UI_SkillTree : MonoBehaviour
         magicSkillPanelOn = true;
         meleeSkillPanel.SetActive(false);
         meleeSkillPanelOn = false;
+    }
+
+    public void SetPowerStrike()
+    {
+        
     }
 
     /*void ButtonClicked(int clickedNumber)

@@ -551,6 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2aea3ecdfc3a644a85d61eaedfa26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerStrikeButton: {fileID: 0}
   skillPanel: {fileID: 77635489}
   meleeSkillPanel: {fileID: 698856501}
   magicSkillPanel: {fileID: 892252954}
@@ -1355,6 +1356,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMeleePanelOn
       objectReference: {fileID: 0}
+    - target: {fileID: 3590415283276047541, guid: 66fd59ee5ddcd0f49869dd3c9939dce5, type: 3}
+      propertyPath: m_Name
+      value: BPSCover
+      objectReference: {fileID: 0}
     - target: {fileID: 3590415283481389440, guid: 66fd59ee5ddcd0f49869dd3c9939dce5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1362,6 +1367,18 @@ PrefabInstance:
     - target: {fileID: 3590415283481389440, guid: 66fd59ee5ddcd0f49869dd3c9939dce5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMagicPanelOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983659019892951448, guid: 66fd59ee5ddcd0f49869dd3c9939dce5, type: 3}
+      propertyPath: m_Name
+      value: TxtPowerStrike
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983659019892951450, guid: 66fd59ee5ddcd0f49869dd3c9939dce5, type: 3}
+      propertyPath: m_Text
+      value: Power Strike
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983659020991154796, guid: 66fd59ee5ddcd0f49869dd3c9939dce5, type: 3}
+      propertyPath: m_Name
+      value: BtnPowerStrike
       objectReference: {fileID: 0}
     - target: {fileID: 5983659021054855980, guid: 66fd59ee5ddcd0f49869dd3c9939dce5, type: 3}
       propertyPath: m_IsActive
