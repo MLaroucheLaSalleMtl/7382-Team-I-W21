@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PickupCoin : MonoBehaviour
 {
-    [SerializeField]private float coin = 0;
+    public float coin = 0;
     public Text coinUI;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,10 +17,17 @@ public class PickupCoin : MonoBehaviour
         }
     }
 
-    void AddCoins()
+    public void AddCoins()
     {
         coin++;
         coinUI.text = coin.ToString();
     }
+
+    public void SubCoins()
+    {
+        coin--;
+        coinUI.text = coin.ToString();
+    }
+
 
 }
