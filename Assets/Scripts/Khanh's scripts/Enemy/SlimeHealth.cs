@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieHealth : MonoBehaviour
+public class SlimeHealth : MonoBehaviour
 {
-    [SerializeField] private int zombieHealth;
+    [SerializeField] private int slimeHealth;
     [SerializeField] private GameObject damagePoint, damageDisplayPos;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(zombieHealth <= 0)
+        if (slimeHealth <= 0)
         {
             gameObject.SetActive(false);
         }
@@ -23,7 +23,7 @@ public class ZombieHealth : MonoBehaviour
 
     public void Hurt()
     {
-        zombieHealth--;
+        slimeHealth--;
         Instantiate(damagePoint, damageDisplayPos.transform.position, Quaternion.identity);
     }
 }

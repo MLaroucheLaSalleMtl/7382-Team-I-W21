@@ -5,10 +5,10 @@ using UnityEngine.InputSystem;
 //Gia Khanh's code
 public class CharacterMovement : MonoBehaviour
 {
+    MyInput myInput;
     // Start is called before the first frame update
     [SerializeField] private float movementSpeed; //Hero's speed
     private Vector2 direction = new Vector2(); // Hero's direction
-    private Vector2 attackDirection = new Vector2(); //Hero's attack direction
     Rigidbody2D rb2d; //Reference to the hero's rigid body
     Animator anim; //Reference to the hero's animator
 
@@ -16,10 +16,12 @@ public class CharacterMovement : MonoBehaviour
     public float attackSpeed;
     private float attackCooldown;
 
+
     void Start()
     {
+        myInput = new MyInput();
         rb2d = GetComponent<Rigidbody2D>(); //Cache the rigid body component
-        anim = GetComponent<Animator>(); //Cache the rigid body component        
+        anim = GetComponent<Animator>(); //Cache the rigid body component
     }
     
 
@@ -32,6 +34,7 @@ public class CharacterMovement : MonoBehaviour
     public void AttackInput(InputAction.CallbackContext context)
     {
         isAttacking = context.performed;
+        myInput.Player.Attack.performed += ctx => Attack();
     }
 
     private void Move() 
@@ -52,11 +55,8 @@ public class CharacterMovement : MonoBehaviour
             rb2d.velocity = Vector2.zero; //Stop the hero from moving when attacking
             attackCooldown = attackSpeed;
             anim.SetBool("isAttacking", true);
-            anim.SetFloat("AttackHorizontal", direction.x);
-            anim.SetFloat("AttackVertical", direction.y);
             isAttacking = true;
         }
-
 
         if (attackCooldown > 0) //After performing an attack, wait for an amount of second before able to perform another attack.
         {
@@ -85,7 +85,6 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         Attack(); // In the FixedUpdate, the animations get delayed.
-
         //PlayerInput();
     }
     private void FixedUpdate()
