@@ -42,9 +42,9 @@ GameObject:
   - component: {fileID: 5085895702350335842}
   - component: {fileID: 5085895702350335855}
   - component: {fileID: 5085895702350335852}
-  - component: {fileID: 5085895702350335854}
   - component: {fileID: 5085895702350335849}
   - component: {fileID: 5085895702350335843}
+  - component: {fileID: 666939620}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -159,22 +159,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &5085895702350335854
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5085895702350335840}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.028425694, y: -0.060249567}
-  m_Size: {x: 0.39774418, y: 0.39774418}
-  m_Direction: 0
 --- !u!114 &5085895702350335849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +189,32 @@ MonoBehaviour:
   zombieHealth: 5
   damagePoint: {fileID: 0}
   damageDisplayPos: {fileID: 1358045559}
+--- !u!61 &666939620
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5085895702350335840}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.008648992, y: -0.03759557}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.6, y: 0.96666664}
+    newSize: {x: 0.51428574, y: 0.82857144}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4374001, y: 0.39521343}
+  m_EdgeRadius: 0
 --- !u!1 &5085895702435691874
 GameObject:
   m_ObjectHideFlags: 0
