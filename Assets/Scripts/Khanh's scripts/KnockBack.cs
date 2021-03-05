@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class KnockBack : MonoBehaviour
 {
-    [SerializeField] private float knockingDistance;
+    [SerializeField] private float knockingDistance, knockBackTime;
     // Start is called before the first frame update
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag ("Enemy"))
+        if(collision.gameObject.CompareTag ("Enemy"))
         {
-            //Vector2 difference = transform.position - collision.transform.position;
-            //transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
             Rigidbody2D enemyRb2d = collision.GetComponent<Rigidbody2D>();
-            
-            enemyRb2d.isKinematic = false;
-            Vector2 difference = collision.transform.position - transform.position; // Need a vector2 for the AddForce function.
-            difference *= knockingDistance;
-            enemyRb2d.AddForce(difference, ForceMode2D.Impulse);
+            if(enemyRb2d !=null)
+            {
+                enemyRb2d.isKinematic = false;
+                Vector2 direction = enemyRb2d.transform.position - transform.position; // Need a vector2 for the AddForce function.
+                direction = direction.normalized * knockingDistance;
+                enemyRb2d.AddForce(direction, ForceMode2D.Impulse);
+                StartCoroutine(KnockBackk(enemyRb2d));
+            } 
+        }
+    }
+
+    private IEnumerator KnockBackk(Rigidbody2D enemyRb2d)
+    {
+        if(enemyRb2d != null)
+        {
+            yield return new WaitForSeconds(knockBackTime);
+            enemyRb2d.velocity = Vector2.zero;
             enemyRb2d.isKinematic = true;
         }
     }
