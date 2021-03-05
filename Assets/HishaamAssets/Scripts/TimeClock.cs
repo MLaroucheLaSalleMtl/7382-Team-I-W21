@@ -41,14 +41,6 @@ public class TimeClock : MonoBehaviour
         string[] temptime = currentTime.ToString().Split(":"[0]);
         textTimer.text = temptime[0] + ":" + temptime[1];
 
-        if(time>432000)
-        {
-
-        }
-        else
-        {
-
-        }
     }
 
 }

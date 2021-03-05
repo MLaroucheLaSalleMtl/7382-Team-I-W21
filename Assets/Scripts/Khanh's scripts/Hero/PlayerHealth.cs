@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int heroHealth;
+    [SerializeField] public int heroHealth;
     [SerializeField] private int numOfHealth;
 
     [SerializeField] private Image[] healthIcon;
