@@ -2233,7 +2233,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 225219569}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 481265969}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: AddSword
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &225219569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3876,6 +3888,8 @@ MonoBehaviour:
   shopText: {fileID: 918268344}
   playerH: {fileID: 58715696}
   pCoins: {fileID: 58715694}
+  swordPrefab: {fileID: 5444846212870865302, guid: e9709aab89a67f348b71f1189b47eb26, type: 3}
+  spearPrefab: {fileID: 0}
 --- !u!70 &481265970
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -8726,6 +8740,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 58715694, guid: a770c363b1bd4d9439165897f0c05d2e, type: 3}
+      propertyPath: coinUI
+      value: 
+      objectReference: {fileID: 957979854}
     - target: {fileID: 582900466, guid: a770c363b1bd4d9439165897f0c05d2e, type: 3}
       propertyPath: healthIcon.Array.data[0]
       value: 
