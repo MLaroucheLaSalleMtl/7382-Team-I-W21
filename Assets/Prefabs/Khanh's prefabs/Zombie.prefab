@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358045559}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 0.7, z: 0}
+  m_LocalPosition: {x: -0.01, y: 0.7, z: -0.203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5085895702350335853}
@@ -107,7 +107,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7415806563394493613, guid: 161d885dfc6a59f45a48e6c594424a60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieHealth: 5
-  damagePoint: {fileID: 0}
+  damagePoint: {fileID: 259410549482562546, guid: f2dc5dbc009575747bbf44c859383454, type: 3}
   damageDisplayPos: {fileID: 1358045559}
 --- !u!61 &666939620
 BoxCollider2D:

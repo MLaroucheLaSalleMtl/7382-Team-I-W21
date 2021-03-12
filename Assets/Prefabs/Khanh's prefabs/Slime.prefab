@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeHealth: 2
-  damagePoint: {fileID: 259410549482562546, guid: f2dc5dbc009575747bbf44c859383454, type: 3}
+  damagePoint: {fileID: 0}
   damageDisplayPos: {fileID: 8991337638839846924}
 --- !u!70 &1626880203
 CapsuleCollider2D:
