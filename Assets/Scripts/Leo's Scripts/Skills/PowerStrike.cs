@@ -29,11 +29,12 @@ namespace Skills
         }
         private void CastPowerStrike()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Y))
             {
                 rb2d.velocity = Vector2.zero;
                 anim.SetBool("isPSing", true);
                 isPSing = true;
+                Debug.Log("is Pressing");
             }
             else
             {
