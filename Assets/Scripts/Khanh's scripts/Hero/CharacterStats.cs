@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
+[Serializable]
 public class CharacterStats
 {
     public float BaseValue;
 
-    public float Value
+    public virtual float Value
     {
         get
         {
@@ -20,28 +21,31 @@ public class CharacterStats
         }
     }
 
-    private bool isDirty = true;
-    private float _value;
-    private float lastBaseValue = float.MinValue;
+    protected bool isDirty = true;
+    protected float _value;
+    protected float lastBaseValue = float.MinValue;
 
-    private readonly List<StatModifier> statModifiers;
+    protected readonly List<StatModifier> statModifiers;
     public readonly ReadOnlyCollection<StatModifier> StatModifiers;
 
-    public CharacterStats(float baseValue)
+    public CharacterStats()
     {
-        BaseValue = baseValue;
         statModifiers = new List<StatModifier>();
         StatModifiers = statModifiers.AsReadOnly();
     }
+    public CharacterStats(float baseValue) : this()
+    {
+        BaseValue = baseValue;
+    }
 
-    public void AddModifier(StatModifier mod)
+    public virtual void AddModifier(StatModifier mod)
     {
         isDirty = true;
         statModifiers.Add(mod);
         statModifiers.Sort();
     }
     
-    private int CompareModifiersOrder(StatModifier a, StatModifier b)
+    protected virtual int CompareModifiersOrder(StatModifier a, StatModifier b)
     {
         if (a.Order < b.Order)
             return -1;
@@ -49,7 +53,7 @@ public class CharacterStats
             return 1;
         return 0; // if (a.Order == b.Order)
     }
-    public bool RemoveModifier(StatModifier mod)
+    public virtual bool RemoveModifier(StatModifier mod)
     {
         if (statModifiers.Remove(mod))
         {
@@ -58,7 +62,7 @@ public class CharacterStats
         }
         return false;
     }
-    public bool RemoveAllModifierFromSource(object source)
+    public virtual bool RemoveAllModifierFromSource(object source)
     {
         bool didRemove = false;
         for (int i = statModifiers.Count - 1; i >= 0; i++)
@@ -73,7 +77,7 @@ public class CharacterStats
         return didRemove;
     }
 
-    private float CalculateFinalValue()
+    protected virtual float CalculateFinalValue()
     {
         float finalValue = BaseValue;
         float sumPercentAdd = 0;
