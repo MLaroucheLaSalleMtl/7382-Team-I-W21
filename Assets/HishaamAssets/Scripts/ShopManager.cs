@@ -62,22 +62,22 @@ public class ShopManager : MonoBehaviour
 
     public void AddSword()
     {
-        if(pCoins.coin >=15)
+        if(pCoins.coin >=5)
         {
             GameObject a = Instantiate(swordPrefab) as GameObject;
             a.transform.position = new Vector2(26.34f, -2.52f);
-            pCoins.coin -= 15;
+            pCoins.coin -= 5;
             pCoins.coinUI.text = pCoins.coin.ToString();
         }
     }
 
     public void AddSpear()
     {
-        if (pCoins.coin >= 15)
+        if (pCoins.coin >= 5)
         {
             GameObject a = Instantiate(spearPrefab) as GameObject;
             a.transform.position = new Vector2(26.34f, -2.52f);
-            pCoins.coin -= 15;
+            pCoins.coin -= 5;
             pCoins.coinUI.text = pCoins.coin.ToString();
         }
     }
