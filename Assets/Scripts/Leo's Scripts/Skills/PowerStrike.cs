@@ -27,19 +27,26 @@ namespace Skills
             isPSing = context.performed;
             myInput.Player.Attack.performed += ctx => CastPowerStrike();
         }
-        private void CastPowerStrike()
+        public void CastPowerStrike()
         {
-            if (Input.GetKeyDown(KeyCode.Y))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 rb2d.velocity = Vector2.zero;
                 anim.SetBool("isPSing", true);
                 isPSing = true;
-                Debug.Log("is Pressing");
+                Debug.Log("is Pressing Space");
             }
             else
             {
                 isPSing = false;
                 anim.SetBool("isPSing", false);             
+            }
+        }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Enemy"))
+            {
+                collision.GetComponent<ZombieHealth>().PowerStrikeHurt(zombieHurt: 2);
             }
         }
     }

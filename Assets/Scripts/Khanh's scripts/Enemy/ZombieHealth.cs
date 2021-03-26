@@ -28,8 +28,10 @@ public class ZombieHealth : MonoBehaviour
         Instantiate(damagePoint, damageDisplayPos.transform.position, Quaternion.identity);
     }
 
-    public void PowerStrikeHurt()
+    public void PowerStrikeHurt(int zombieHurt)
     {
-        
+        zombieHurt = 2;
+        zombieHealth -= zombieHurt;
+        Instantiate(damagePoint, damageDisplayPos.transform.position, Quaternion.identity);
     }
 }

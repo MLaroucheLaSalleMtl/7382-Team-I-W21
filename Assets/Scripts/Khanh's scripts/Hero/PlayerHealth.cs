@@ -46,6 +46,15 @@ public class PlayerHealth : MonoBehaviour
 
     public void Hurt()
     {
-        heroHealth--;
+        int heroHurt;
+        heroHurt = 1;
+        heroHealth -= heroHurt;
+    }
+
+    public void InBravery()
+    {
+        int heroHurt;
+        heroHurt = 0;
+        heroHealth -= heroHurt;
     }
 }
