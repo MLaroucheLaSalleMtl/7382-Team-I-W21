@@ -11,6 +11,9 @@ namespace Skills
         private Animator anim;
         Rigidbody2D rb2d;
 
+        private float cooldownTime = 3;
+        private float nextCastTime = 0;
+
         private bool braveryActivated;
         // Start is called before the first frame update
         void Start()
@@ -32,13 +35,17 @@ namespace Skills
         }
         private void CastBravery()
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Time.time > nextCastTime)
             {
-                rb2d.velocity = Vector2.zero;
-                anim.SetBool("BraveryActivated", true);
-                braveryActivated = true;
-                Debug.Log("is Pressing F");
-            }
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    rb2d.velocity = Vector2.zero;
+                    anim.SetBool("BraveryActivated", true);
+                    braveryActivated = true;
+                    nextCastTime = Time.time + cooldownTime;
+                    Debug.Log("is Pressing F");
+                }
+            }        
             else
             {
                 braveryActivated = false;
@@ -50,10 +57,8 @@ namespace Skills
         {
             if (collision.CompareTag("Enemy"))
             {
-                collision.GetComponent<ZombieHealth>().Hurt(zombieHurt: 0);
                 collision.GetComponent<PlayerHealth>().InBravery();
             }
         }
     }
-
 }

@@ -11,6 +11,9 @@ namespace Skills
         private Animator anim;
         Rigidbody2D rb2d;
 
+        private float cooldownTime = 2;
+        private float nextCastTime = 0;
+
         private bool isPSing;
         private void Start()
         {
@@ -21,6 +24,7 @@ namespace Skills
         private void Update()
         {
             CastPowerStrike();
+            
         }
         public void PowerStrikeInput(InputAction.CallbackContext context)
         {
@@ -29,13 +33,17 @@ namespace Skills
         }
         public void CastPowerStrike()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Time.time > nextCastTime)
             {
-                rb2d.velocity = Vector2.zero;
-                anim.SetBool("isPSing", true);
-                isPSing = true;
-                Debug.Log("is Pressing Space");
-            }
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    rb2d.velocity = Vector2.zero;
+                    anim.SetBool("isPSing", true);
+                    isPSing = true;
+                    nextCastTime = Time.time + cooldownTime;
+                    Debug.Log("is Pressing Space");
+                }
+            }           
             else
             {
                 isPSing = false;
@@ -46,7 +54,7 @@ namespace Skills
         {
             if (collision.CompareTag("Enemy"))
             {
-                collision.GetComponent<ZombieHealth>().PowerStrikeHurt(zombieHurt: 2);
+                collision.GetComponent<ZombieHealth>().PowerStrikeHurt();
             }
         }
     }
