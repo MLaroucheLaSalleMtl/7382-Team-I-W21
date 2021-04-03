@@ -7,8 +7,6 @@ public class CrabHealth : MonoBehaviour
     public int health = 500;
     public GameObject death;
 
-    public bool IsInvulnerable=false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +15,7 @@ public class CrabHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (IsInvulnerable)
-            return;
-
+   
         health -= damage;
 
         if (health <= 0)
