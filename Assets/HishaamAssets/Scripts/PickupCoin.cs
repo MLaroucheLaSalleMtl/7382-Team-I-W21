@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PickupCoin : MonoBehaviour
 {
-    public float coin;
+    public float coin=0;
     public Text coinUI;
 
     private void OnTriggerEnter2D(Collider2D collision)

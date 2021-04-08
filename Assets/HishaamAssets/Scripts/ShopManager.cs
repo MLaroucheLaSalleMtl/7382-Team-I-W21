@@ -12,6 +12,10 @@ public class ShopManager : MonoBehaviour
     public PlayerHealth playerH;
     public PickupCoin pCoins;
 
+    //prefabsword
+    public GameObject swordPrefab;
+    public GameObject spearPrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +27,7 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,5 +59,28 @@ public class ShopManager : MonoBehaviour
         
         Debug.Log("add");
     }
+
+    public void AddSword()
+    {
+        if(pCoins.coin >=5)
+        {
+            GameObject a = Instantiate(swordPrefab) as GameObject;
+            a.transform.position = new Vector2(26.34f, -2.52f);
+            pCoins.coin -= 5;
+            pCoins.coinUI.text = pCoins.coin.ToString();
+        }
+    }
+
+    public void AddSpear()
+    {
+        if (pCoins.coin >= 5)
+        {
+            GameObject a = Instantiate(spearPrefab) as GameObject;
+            a.transform.position = new Vector2(26.34f, -2.52f);
+            pCoins.coin -= 5;
+            pCoins.coinUI.text = pCoins.coin.ToString();
+        }
+    }
+
 
 }
