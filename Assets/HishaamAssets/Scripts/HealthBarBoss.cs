@@ -10,9 +10,9 @@ public class HealthBarBoss : MonoBehaviour
     public Image hpIm;
     public Image hpback;
 
-    private float hp;
+    public float hp;
     [SerializeField] private float maxHp;
-    [SerializeField]
+    [SerializeField]private float hurtSpeed=0.005f;
 
     private void Start()
     {
@@ -25,7 +25,11 @@ public class HealthBarBoss : MonoBehaviour
 
         if(hpback.fillAmount>hpIm.fillAmount)
         {
-            //hpback.fillAmount -= hurtSpeed;
+            hpback.fillAmount -= hurtSpeed;
+        }
+        else
+        {
+            hpback.fillAmount = hpIm.fillAmount;
         }
     }
 }

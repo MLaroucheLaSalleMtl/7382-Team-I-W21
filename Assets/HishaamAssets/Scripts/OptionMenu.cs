@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class OptionMenu : MonoBehaviour
 {
 
-    public AudioMixer audioMixer;
+    public AudioSource audiosource;
+    public Slider slider;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +24,9 @@ public class OptionMenu : MonoBehaviour
     }
 
     //Adding background OST (Controlling volume)
-    public void SFX(float sfx)
+    public void SFX()
     {
-        audioMixer.SetFloat("MySFX", sfx);
+        audiosource.volume = slider.value;
     }
 
     //setting the graphics(low, medium, high)

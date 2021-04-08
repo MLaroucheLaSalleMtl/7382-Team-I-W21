@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Projectiles : MonoBehaviour
 {
@@ -13,13 +14,18 @@ public class Projectiles : MonoBehaviour
     public GameObject proOrbDestroy;
     public GameObject proOrb;
 
+    public PlayerHealth playerH;
+
     private void Start()
     {
+        playerH = GameObject.Find("Hero").GetComponent<PlayerHealth>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        
     }
 
     private void Update()
     {
+      
         transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
 
         lifeTime += Time.deltaTime;
@@ -30,13 +36,16 @@ public class Projectiles : MonoBehaviour
         }
     }
 
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag=="Player")
-        {
+        { 
             Instantiate(proOrbDestroy, transform.position, Quaternion.identity);
+            playerH.heroHealth--;
             Destroy(gameObject);
-
         }
     }
+
+   
 }

@@ -113,10 +113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583af912101d91e49ba1907321936888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  liFe: 2
+  moveSpeed: 2
+  liFe: 1
   proOrbDestroy: {fileID: 5554798960339515048, guid: c2cbf1afec1914f49aafe325a8faf83b, type: 3}
   proOrb: {fileID: 3871833278415317656}
+  playerH: {fileID: 0}
 --- !u!114 &-6124046100257796122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,4 +130,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f829a2d4755e3274f9268f06a8066161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyed: 1
+  destroyed: 3
