@@ -21,10 +21,25 @@ public class ZombieHealth : MonoBehaviour
         }
     }
 
-    public void Hurt(int zombieHurt)
+    public void Hurt()
     {
-        zombieHurt = 1;
+        int zombieHurt = 1;
         zombieHealth-=zombieHurt;
+        Instantiate(damagePoint, damageDisplayPos.transform.position, Quaternion.identity);
+    }
+
+    public void PowerStrikeHurt()
+    {
+        int zombieHurt = 2;
+        zombieHealth -= zombieHurt;
+        Instantiate(damagePoint, damageDisplayPos.transform.position, Quaternion.identity);
+    }
+
+    public void LifeStolen()
+    {
+        int zombieHurt = 1;
+        zombieHealth -= zombieHurt;
+        GetComponent<PlayerHealth>().LifeStealing();
         Instantiate(damagePoint, damageDisplayPos.transform.position, Quaternion.identity);
     }
 }

@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class HurtHero : MonoBehaviour
 {
+    // Start is called before the first frame update
+    void Start()
+    {
+       
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
@@ -14,15 +25,12 @@ public class HurtHero : MonoBehaviour
         
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<ZombieHealth>().Hurt(zombieHurt: 1); 
+            collision.GetComponent<ZombieHealth>().Hurt();
         }
         if (collision.CompareTag("Slime"))
         {
             collision.GetComponent<SlimeHealth>().Hurt();
         }
-        if(collision.CompareTag("Minotaur"))
-        {
-            collision.GetComponent<MinotaurHealth>().Hurt();
-        }
+
     }
 }

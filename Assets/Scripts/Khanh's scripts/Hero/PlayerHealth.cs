@@ -11,8 +11,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Image[] healthIcon;
     [SerializeField] private Sprite fullHeart;
     [SerializeField] private Sprite emptyHeart;
-
-    [SerializeField] private UI_Death deathUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,13 +40,28 @@ public class PlayerHealth : MonoBehaviour
 
         if (heroHealth <= 0)
         {
-            deathUI.DisplayUI();
             gameObject.SetActive(false);
         }
     }
 
     public void Hurt()
     {
-        heroHealth--;
+        int heroHurt;
+        heroHurt = 1;
+        heroHealth -= heroHurt;
+    }
+
+    public void InBravery()
+    {
+        int heroHurt;
+        heroHurt = 0;
+        heroHealth -= heroHurt;
+    }
+
+    public void LifeStealing()
+    {
+        int heroHurt;
+        heroHurt = -1;
+        heroHealth -= heroHurt;
     }
 }
