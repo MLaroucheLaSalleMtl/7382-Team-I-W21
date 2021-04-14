@@ -21,14 +21,14 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         
-        if(heroHealth > numOfHealth) //Check bug if playerHealth is greater than number of health icons
+        if(heroHealth > numOfHealth) //Check bug if playerHealth is greater than the number of health icons
         {
             heroHealth = numOfHealth;
         }
 
         for (int i = 0; i < healthIcon.Length; i++)
-        {//i = the loss health
-            if(i < heroHealth) //the number of health is maller than hero health
+        {
+            if(i < heroHealth) //the number of health icon is maller than hero health
             {
                 healthIcon[i].sprite = fullHeart;
             }
@@ -60,19 +60,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void LifeStealing()
     {
-        int heroHurt;
-        heroHurt = -1;
-        heroHealth -= heroHurt;
-        if (heroHealth < numOfHealth)
-        {
-            heroHealth++;
-            for (int i = 0; i < healthIcon.Length; i++)
-            {
-                if (i < heroHealth)
-                {
-                    healthIcon[i].sprite = fullHeart;
-                }             
-            }
-        }
+        int heroLS;
+        heroLS = 1;
+        heroHealth += heroLS;
     }
 }

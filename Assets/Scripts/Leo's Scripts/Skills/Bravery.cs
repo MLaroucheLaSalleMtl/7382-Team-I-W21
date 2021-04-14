@@ -11,8 +11,8 @@ namespace Skills
         private Animator anim;
         Rigidbody2D rb2d;
 
-        private float cooldownTime = 3;
-        private float nextCastTime = 0;
+        private float cooldownTime = 3.0f;
+        private float nextCastTime = 0f;
 
         private bool braveryActivated;
         // Start is called before the first frame update

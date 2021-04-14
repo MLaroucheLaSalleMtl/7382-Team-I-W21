@@ -8,8 +8,7 @@ public class BloodyFightCollision : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<ZombieHealth>().Hurt();
-            collision.GetComponent<PlayerHealth>().LifeStealing();
+            collision.GetComponent<ZombieHealth>().BFHurt();
         }
     }
 }
