@@ -26,6 +26,7 @@ public class HurtHero : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<ZombieHealth>().Hurt();
+            Debug.Log("Hurt once");
         }
         if (collision.CompareTag("Slime"))
         {
