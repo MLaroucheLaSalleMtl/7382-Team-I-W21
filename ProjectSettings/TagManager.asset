@@ -8,6 +8,10 @@ TagManager:
   - Enemy
   - Slime
   - Weapon
+  - Ruby
+  - Emerald
+  - Crab
+  - Fireball
   layers:
   - Default
   - TransparentFX

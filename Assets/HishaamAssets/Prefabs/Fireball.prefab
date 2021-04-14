@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2548142286903817623}
   m_Layer: 0
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +121,7 @@ MonoBehaviour:
   fireBall: {fileID: 2548142286903817629}
   firePoint: {fileID: 0}
   rb: {fileID: 2548142286903817622}
+  maNaScr: {fileID: 0}
 --- !u!50 &2548142286903817622
 Rigidbody2D:
   serializedVersion: 4

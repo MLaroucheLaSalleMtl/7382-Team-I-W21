@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnEnemies : MonoBehaviour
 {
     public GameObject enemyToSpawn;
+    float lifeTime = 5.0f;                                                          
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,10 @@ public class SpawnEnemies : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+
             Instantiate(enemyToSpawn, transform.position, transform.rotation);
+            DestroyExplosion();
+
 
             //Spawning more than 1 enemy
             //GameObject go1 = (GameObject)Instantiate(enemyToSpawn, transform.position, transform.rotation);
@@ -30,4 +34,11 @@ public class SpawnEnemies : MonoBehaviour
            
         }
     }
+
+    public void DestroyExplosion()
+    {
+        Destroy(gameObject, lifeTime);
+    }
+        
+
 }

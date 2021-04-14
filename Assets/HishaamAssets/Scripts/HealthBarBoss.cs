@@ -14,9 +14,12 @@ public class HealthBarBoss : MonoBehaviour
     [SerializeField] private float maxHp;
     [SerializeField]private float hurtSpeed=0.005f;
 
+    public GameObject death;
+
     private void Start()
     {
         hp = maxHp;
+       
     }
 
     private void Update()
@@ -30,6 +33,15 @@ public class HealthBarBoss : MonoBehaviour
         else
         {
             hpback.fillAmount = hpIm.fillAmount;
+        }
+    }
+
+    public void Die()
+    {
+        if(hp<=0)
+        {
+            Instantiate(death, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }

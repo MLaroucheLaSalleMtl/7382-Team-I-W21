@@ -12,10 +12,15 @@ public class ShopManager : MonoBehaviour
     public PlayerHealth playerH;
     public PickupCoin pCoins;
 
+    //mana
+    private float addSpeed = 0.005f;
+
     //prefabsword
     public GameObject swordPrefab;
     public GameObject spearPrefab;
 
+    //manascript
+    public manaBar manaB;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +57,6 @@ public class ShopManager : MonoBehaviour
 
         if(pCoins.coin > 0)
         {
-           
             playerH.heroHealth++;
             pCoins.SubCoins();
         }
@@ -60,12 +64,32 @@ public class ShopManager : MonoBehaviour
         Debug.Log("add");
     }
 
+    public void AddMana()
+    {
+        if(pCoins.coin>=5)
+        {
+            //if (manaB.manaBackground.fillAmount > manaB.maNaIm.fillAmount)
+            //{
+               //manaB.manaBackground.fillAmount += addSpeed;
+            //}
+            //else
+            //{
+                //manaB.manaBackground.fillAmount = manaB.maNaIm.fillAmount;
+            //}
+
+            manaB.mana += 10;
+
+            pCoins.coin -= 5;
+            pCoins.coinUI.text = pCoins.coin.ToString();
+        }
+    }
+
     public void AddSword()
     {
         if(pCoins.coin >=5)
         {
             GameObject a = Instantiate(swordPrefab) as GameObject;
-            a.transform.position = new Vector2(26.34f, -2.52f);
+            a.transform.position = new Vector2(-19.53f, 1.37f);
             pCoins.coin -= 5;
             pCoins.coinUI.text = pCoins.coin.ToString();
         }
@@ -76,7 +100,7 @@ public class ShopManager : MonoBehaviour
         if (pCoins.coin >= 5)
         {
             GameObject a = Instantiate(spearPrefab) as GameObject;
-            a.transform.position = new Vector2(26.34f, -2.52f);
+            a.transform.position = new Vector2(-19.53f, 1.37f);
             pCoins.coin -= 5;
             pCoins.coinUI.text = pCoins.coin.ToString();
         }
