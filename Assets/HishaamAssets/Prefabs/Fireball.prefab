@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: -8775952739572898623, guid: 3a0b688a5f07a8b4fbe76c5a89a056b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.26, y: 0.1}
@@ -118,7 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
-  fireBall: {fileID: 2548142286903817629}
+  fireBall: {fileID: 2353022937292326096, guid: ad22e8dd893b35c49b756217e63e7d0a, type: 3}
+  fireBallEx: {fileID: 3258228688158767520, guid: f4474de2e1a12294a889f9557c570753, type: 3}
   firePoint: {fileID: 0}
   rb: {fileID: 2548142286903817622}
   maNaScr: {fileID: 0}
