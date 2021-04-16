@@ -130,4 +130,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f829a2d4755e3274f9268f06a8066161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyed: 3
+  destroyed: 1

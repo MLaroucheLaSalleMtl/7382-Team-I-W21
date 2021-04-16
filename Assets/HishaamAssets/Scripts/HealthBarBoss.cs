@@ -14,9 +14,15 @@ public class HealthBarBoss : MonoBehaviour
     [SerializeField] private float maxHp;
     [SerializeField]private float hurtSpeed=0.005f;
 
+    public GameObject death;
+
+    public BossAttRange bossRange;
+
     private void Start()
     {
         hp = maxHp;
+        bossRange = GameObject.Find("Crab").GetComponent<BossAttRange>();
+
     }
 
     private void Update()
@@ -30,6 +36,15 @@ public class HealthBarBoss : MonoBehaviour
         else
         {
             hpback.fillAmount = hpIm.fillAmount;
+        }
+    }
+
+    public void Die()
+    {
+        if(hp<=0)
+        {
+            Instantiate(death, transform.position, Quaternion.identity);
+            Destroy(bossRange.gameObject);
         }
     }
 }

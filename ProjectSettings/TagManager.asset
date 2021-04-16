@@ -8,7 +8,12 @@ TagManager:
   - Enemy
   - Slime
   - Weapon
-  - Minotaur
+  - Ruby
+  - Emerald
+  - Crab
+  - Fireball
+  - Spear
+  - Sword
   layers:
   - Default
   - TransparentFX
@@ -18,7 +23,7 @@ TagManager:
   - UI
   - Both
   - Minimap
-  - Player
+  - 
   - 
   - 
   - 

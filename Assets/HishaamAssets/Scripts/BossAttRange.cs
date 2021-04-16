@@ -34,23 +34,24 @@ public class BossAttRange : MonoBehaviour
         }
     }
 
-    IEnumerator ExampleCoroutine()
-    {
+    //IEnumerator ExampleCoroutine()
+    //{
         //Print the time of when the function is first called.
         //Debug.Log("Started Coroutine at timestamp : " + Time.time);
 
-        Instantiate(proJectile, point.position, Quaternion.identity);
+        
 
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(5);
+        //yield return new WaitForSeconds(5);
 
         //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-    }
+        //Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    //}
 
     
     public void Ball()
     {
-        StartCoroutine(ExampleCoroutine());
+        Instantiate(proJectile, point.position, Quaternion.identity);
+        //StartCoroutine(ExampleCoroutine());
     }
 }
