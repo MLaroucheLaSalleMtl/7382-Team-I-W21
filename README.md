@@ -13,3 +13,6 @@
 
 
 ### For example, when you get hit, go to the shop and buy a health potion to restore one health. 
+
+### Defeat the monsters! Also find the clues to be able to enter some dungeons, there might be something like this: ![Red ruby](https://user-images.githubusercontent.com/46761662/114971726-faf41200-9e4a-11eb-9944-34c3f93cfada.PNG)
+### Go find them and figure out their use!
