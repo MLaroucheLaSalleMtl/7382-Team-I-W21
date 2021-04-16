@@ -9,7 +9,7 @@
 ### For skills: press key SPACE for Power Strike(double normal attack damage)![space_key_s](https://user-images.githubusercontent.com/46761662/114970228-0560dc80-9e48-11eb-8fa6-18e277e69528.png)
 ### F for Bravery (block an attack from enemies within a short duration)![letter_f](https://user-images.githubusercontent.com/46761662/114969105-b74ad980-9e45-11eb-9487-7b8d2f07e1db.png)
 ### G for Bloody Fight (attack an enemy and life steal 1 HP from attacking).![letter_g](https://user-images.githubusercontent.com/46761662/114970317-32ad8a80-9e48-11eb-8380-3b60c52281e9.png)
-
+### Right Click to fire rojectile fireballs. They will consume energy, so do not spam it after the energy bar is clear.
 ### Collect coins to have money to buy things at the shop.![Coin](https://user-images.githubusercontent.com/46761662/114971207-dcd9e200-9e49-11eb-837e-15d299c671b1.jpg)
 
 
