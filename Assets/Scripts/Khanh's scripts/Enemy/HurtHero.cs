@@ -13,10 +13,7 @@ public class HurtHero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (true)
-        {
-            
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +25,8 @@ public class HurtHero : MonoBehaviour
         
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<ZombieHealth>().Hurt(zombieHurt: 1);
+            collision.GetComponent<ZombieHealth>().Hurt();
+            Debug.Log("Hurt once");
         }
         if (collision.CompareTag("Slime"))
         {
