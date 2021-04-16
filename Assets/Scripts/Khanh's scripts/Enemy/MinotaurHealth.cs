@@ -5,8 +5,6 @@ using UnityEngine;
 public class MinotaurHealth : MonoBehaviour
 {
     [SerializeField] private int minotaurHealth;
-    [SerializeField] private GameObject damagePoint, damageDisplayPos;
-    [SerializeField] private UI_Victory victoryUI;
 
     Animator anim;
 
@@ -19,7 +17,6 @@ public class MinotaurHealth : MonoBehaviour
     {
         if (minotaurHealth <= 0)
         {
-            victoryUI.DisplayUI();
             anim.SetTrigger("Death");
             
             //gameObject.SetActive(false);
@@ -30,6 +27,5 @@ public class MinotaurHealth : MonoBehaviour
     public void Hurt()
     {
         minotaurHealth--;
-        Instantiate(damagePoint, damageDisplayPos.transform.position, Quaternion.identity);
     }
 }

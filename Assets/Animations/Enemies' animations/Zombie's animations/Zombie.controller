@@ -190,9 +190,9 @@ MonoBehaviour:
   movementSpeed: 1
   startWaitTime: 0.5
   points:
-  - {fileID: 4648090034254122720, guid: 5b01af9ae98f63b478aadcbeaac34379, type: 3}
-  - {fileID: 8918916719911129897, guid: 2d02b4649ebbe8d42818597550db472b, type: 3}
-  - {fileID: 6890389950483085418, guid: 81a7677d68fe5de4b8c548e0eb69edfd, type: 3}
+  - {fileID: 3710781137666574796, guid: 03fa0e56b725aa7478f6582962b232c7, type: 3}
+  - {fileID: 5694094307086278668, guid: 710536ba5210db24f902e5ea4d1a9db3, type: 3}
+  - {fileID: 7661880934227157310, guid: 3f0393f77f33f924184c4ae490f23c6b, type: 3}
 --- !u!114 &-2672705316792688312
 MonoBehaviour:
   m_ObjectHideFlags: 1
