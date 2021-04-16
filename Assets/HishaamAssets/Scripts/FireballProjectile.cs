@@ -57,7 +57,7 @@ public class FireballProjectile : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(fireBallEx, transform.position, Quaternion.identity);
-            collision.GetComponent<ZombieHealth>().Hurt(2);
+            //collision.GetComponent<ZombieHealth>().Hurt(2);
         }
     }
 
