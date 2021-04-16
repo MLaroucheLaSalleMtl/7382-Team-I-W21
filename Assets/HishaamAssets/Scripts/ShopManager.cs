@@ -32,7 +32,7 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        pCoins.coinUI.text = pCoins.coin.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -68,20 +68,10 @@ public class ShopManager : MonoBehaviour
     {
         if(pCoins.coin>=5)
         {
-            //if (manaB.manaBackground.fillAmount > manaB.maNaIm.fillAmount)
-            //{
-               //manaB.manaBackground.fillAmount += addSpeed;
-            //}
-            //else
-            //{
-                //manaB.manaBackground.fillAmount = manaB.maNaIm.fillAmount;
-            //}
-
-            manaB.mana += 10;
-
+            manaB.mana+= 100;
             pCoins.coin -= 5;
-            pCoins.coinUI.text = pCoins.coin.ToString();
         }
+       
     }
 
     public void AddSword()
@@ -91,7 +81,6 @@ public class ShopManager : MonoBehaviour
             GameObject a = Instantiate(swordPrefab) as GameObject;
             a.transform.position = new Vector2(-19.53f, 1.37f);
             pCoins.coin -= 5;
-            pCoins.coinUI.text = pCoins.coin.ToString();
         }
     }
 
@@ -102,7 +91,6 @@ public class ShopManager : MonoBehaviour
             GameObject a = Instantiate(spearPrefab) as GameObject;
             a.transform.position = new Vector2(-19.53f, 1.37f);
             pCoins.coin -= 5;
-            pCoins.coinUI.text = pCoins.coin.ToString();
         }
     }
 

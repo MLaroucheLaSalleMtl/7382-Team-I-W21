@@ -12,6 +12,8 @@ TagManager:
   - Emerald
   - Crab
   - Fireball
+  - Spear
+  - Sword
   layers:
   - Default
   - TransparentFX

@@ -16,10 +16,13 @@ public class HealthBarBoss : MonoBehaviour
 
     public GameObject death;
 
+    public BossAttRange bossRange;
+
     private void Start()
     {
         hp = maxHp;
-       
+        bossRange = GameObject.Find("Crab").GetComponent<BossAttRange>();
+
     }
 
     private void Update()
@@ -41,7 +44,7 @@ public class HealthBarBoss : MonoBehaviour
         if(hp<=0)
         {
             Instantiate(death, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Destroy(bossRange.gameObject);
         }
     }
 }

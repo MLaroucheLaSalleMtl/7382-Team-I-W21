@@ -6,8 +6,10 @@ public class FireballProjectile : MonoBehaviour
 {
     public float moveSpeed = 20f;
     public GameObject fireBall;
+    public GameObject fireBallEx;
     public Transform firePoint;
     public Rigidbody2D rb;
+
 
     public manaBar maNaScr;
     
@@ -41,11 +43,21 @@ public class FireballProjectile : MonoBehaviour
     //Damage to the boss Crab Projectile
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Damage Crab
         if (collision.gameObject.tag == ("Crab"))
         {
-            collision.GetComponentInChildren<HealthBarBoss>().hp -= 10;
+            Destroy(gameObject);
+            Instantiate(fireBallEx, transform.position, Quaternion.identity);
+            collision.GetComponentInChildren<HealthBarBoss>().hp -= 20;
             collision.GetComponentInChildren<HealthBarBoss>().Die();
+        }
 
+        //Damage Zombie
+        if(collision.gameObject.tag==("Enemy"))
+        {
+            Destroy(gameObject);
+            Instantiate(fireBallEx, transform.position, Quaternion.identity);
+            collision.GetComponent<ZombieHealth>().Hurt(2);
         }
     }
 

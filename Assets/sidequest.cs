@@ -15,4 +15,13 @@ public class sidequest : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Sword"))
+        {
+            Debug.Log("Test");
+            //Destroy(gameObject);
+        }
+    }
 }
