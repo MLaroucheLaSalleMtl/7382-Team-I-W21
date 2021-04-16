@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] public int heroHealth;
-    [SerializeField] private int numOfHealth;
+    [SerializeField] public int heroHealth;//Hero's current health
+    [SerializeField] private int numOfHealth;//Number of health icon == max hero's health
 
-    [SerializeField] private Image[] healthIcon;
-    [SerializeField] private Sprite fullHeart;
-    [SerializeField] private Sprite emptyHeart;
+    [SerializeField] private Image[] healthIcon;//HHHHH
+    [SerializeField] private Sprite fullHeart;//HP existed
+    [SerializeField] private Sprite emptyHeart;//HP lost
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +21,14 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         
-        if(heroHealth > numOfHealth) //Check bug if playerHealth is greater than number of health icons
+        if(heroHealth > numOfHealth) //Check bug if playerHealth is greater than the number of health icons
         {
             heroHealth = numOfHealth;
         }
 
         for (int i = 0; i < healthIcon.Length; i++)
         {
-            if(i < heroHealth) //Number of hearts is smaller than hero health   
+            if(i < heroHealth) //the number of health icon is maller than hero health
             {
                 healthIcon[i].sprite = fullHeart;
             }
@@ -60,8 +60,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void LifeStealing()
     {
-        int heroHurt;
-        heroHurt = -1;
-        heroHealth -= heroHurt;
+        int heroLS;
+        heroLS = 1;
+        heroHealth += heroLS;
     }
 }

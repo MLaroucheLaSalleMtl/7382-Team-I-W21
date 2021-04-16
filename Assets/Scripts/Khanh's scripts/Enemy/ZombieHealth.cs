@@ -6,10 +6,14 @@ public class ZombieHealth : MonoBehaviour
 {
     [SerializeField] private int zombieHealth;
     [SerializeField] private GameObject damagePoint, damageDisplayPos;
+
+    private PlayerHealth heroHealthGain;
+
+    private int zombieHealthLoss = 1;
     // Start is called before the first frame update
     void Start()
     {
-        
+        heroHealthGain = GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -23,23 +27,18 @@ public class ZombieHealth : MonoBehaviour
 
     public void Hurt()
     {
-        int zombieHurt = 1;
-        zombieHealth-=zombieHurt;
+        zombieHealth -= zombieHealthLoss;
         Instantiate(damagePoint, damageDisplayPos.transform.position, Quaternion.identity);
     }
 
     public void PowerStrikeHurt()
     {
-        int zombieHurt = 2;
-        zombieHealth -= zombieHurt;
+        zombieHealth -= zombieHealthLoss * 2;
         Instantiate(damagePoint, damageDisplayPos.transform.position, Quaternion.identity);
     }
-
-    public void LifeStolen()
+    public void BFHurt()
     {
-        int zombieHurt = 1;
-        zombieHealth -= zombieHurt;
-        GetComponent<PlayerHealth>().LifeStealing();
+        zombieHealth -= zombieHealthLoss;
         Instantiate(damagePoint, damageDisplayPos.transform.position, Quaternion.identity);
     }
 }

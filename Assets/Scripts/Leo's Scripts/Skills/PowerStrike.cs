@@ -11,8 +11,8 @@ namespace Skills
         private Animator anim;
         Rigidbody2D rb2d;
 
-        private float cooldownTime = 2;
-        private float nextCastTime = 0;
+        private float cooldownTime = 2.0f;
+        private float nextCastTime = 0f;
 
         private bool isPSing;
         private void Start()
@@ -32,7 +32,7 @@ namespace Skills
             myInput.Player.Attack.performed += ctx => CastPowerStrike();
         }
         public void CastPowerStrike()
-        {
+        {//Press button Space to cast the spell
             if (Time.time > nextCastTime)
             {
                 if (Input.GetKeyDown(KeyCode.Space))
@@ -48,13 +48,6 @@ namespace Skills
             {
                 isPSing = false;
                 anim.SetBool("isPSing", false);             
-            }
-        }
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.CompareTag("Enemy"))
-            {
-                collision.GetComponent<ZombieHealth>().PowerStrikeHurt();
             }
         }
     }

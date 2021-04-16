@@ -11,8 +11,8 @@ namespace Skills
         private Animator anim;
         Rigidbody2D rb2d;
 
-        private float cooldownTime = 3;
-        private float nextCastTime = 0;
+        private float cooldownTime = 3.0f;
+        private float nextCastTime = 0f;
 
         private bool braveryActivated;
         // Start is called before the first frame update
@@ -51,14 +51,6 @@ namespace Skills
                 braveryActivated = false;
                 anim.SetBool("BraveryActivated", false);
             }
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.CompareTag("Enemy"))
-            {
-                collision.GetComponent<PlayerHealth>().InBravery();
-            }
-        }
+        }       
     }
 }
