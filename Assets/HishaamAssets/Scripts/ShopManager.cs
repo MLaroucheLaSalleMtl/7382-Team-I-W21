@@ -66,31 +66,31 @@ public class ShopManager : MonoBehaviour
 
     public void AddMana()
     {
-        if(pCoins.coin>=5)
+        if(pCoins.coin>=10)
         {
             manaB.mana+= 100;
-            pCoins.coin -= 5;
+            pCoins.coin -= 10;
         }
        
     }
 
     public void AddSword()
     {
-        if(pCoins.coin >=5)
+        if(pCoins.coin >=30)
         {
             GameObject a = Instantiate(swordPrefab) as GameObject;
             a.transform.position = new Vector2(-19.53f, 1.37f);
-            pCoins.coin -= 5;
+            pCoins.coin -= 30;
         }
     }
 
     public void AddSpear()
     {
-        if (pCoins.coin >= 5)
+        if (pCoins.coin >= 30)
         {
             GameObject a = Instantiate(spearPrefab) as GameObject;
             a.transform.position = new Vector2(-19.53f, 1.37f);
-            pCoins.coin -= 5;
+            pCoins.coin -= 30;
         }
     }
 

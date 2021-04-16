@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MinotaurHealth : MonoBehaviour
 {
-    [SerializeField] private int minotaurHealth;
+    [SerializeField] public int minotaurHealth;
 
     Animator anim;
 

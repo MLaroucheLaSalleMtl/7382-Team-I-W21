@@ -11,5 +11,16 @@ public class PowerStrikeHurt : MonoBehaviour
             PSCol.GetComponent<ZombieHealth>().PowerStrikeHurt();
             Debug.Log("Power Strike-ed");
         }
+
+        if (PSCol.CompareTag("Minotaur"))
+        {
+            PSCol.GetComponent<MinotaurHealth>().Hurt();
+        }
+
+        if (PSCol.CompareTag("Crab"))
+        {
+            PSCol.GetComponent<HealthBarBoss>().hp -= 15;
+            PSCol.GetComponent<HealthBarBoss>().Die();
+        }
     }
 }

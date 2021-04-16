@@ -26,7 +26,7 @@ public class PickupCoin : MonoBehaviour
 
     public void SubCoins()
     {
-        coin--;
+        coin-=2;
         coinUI.text = coin.ToString();
     }
 

@@ -36,8 +36,8 @@ public class FireballProjectile : MonoBehaviour
     void Shoot()
     {
         Instantiate(fireBall, firePoint.position, firePoint.rotation);
-        maNaScr.mana -= 5f;
-        Destroy(fireBall, 5.0f);
+        maNaScr.mana -= 10f;
+        //Destroy(fireBall, 5.0f);
     }
 
     //Damage to the boss Crab Projectile
@@ -57,8 +57,17 @@ public class FireballProjectile : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(fireBallEx, transform.position, Quaternion.identity);
-            //collision.GetComponent<ZombieHealth>().Hurt(2);
+            collision.GetComponent<ZombieHealth>().Hurt();
         }
+
+        //Damage Minotaur
+        if (collision.gameObject.tag == ("Minotaur"))
+        {
+            Destroy(gameObject);
+            Instantiate(fireBallEx, transform.position, Quaternion.identity);
+            collision.GetComponent<MinotaurHealth>().Hurt();
+        }
+
     }
 
 }

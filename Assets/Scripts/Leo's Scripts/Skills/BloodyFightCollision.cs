@@ -10,5 +10,16 @@ public class BloodyFightCollision : MonoBehaviour
         {
             collision.GetComponent<ZombieHealth>().BFHurt();
         }
+
+        if (collision.CompareTag("Minotaur"))
+        {
+            collision.GetComponent<MinotaurHealth>().Hurt();
+        }
+
+        if (collision.CompareTag("Crab"))
+        {
+            collision.GetComponent<HealthBarBoss>().hp-=15;
+            collision.GetComponent<HealthBarBoss>().Die();
+        }
     }
 }

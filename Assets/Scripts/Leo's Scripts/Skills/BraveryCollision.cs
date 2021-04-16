@@ -8,7 +8,18 @@ public class BraveryCollision : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<PlayerHealth>().InBravery();
+            collision.GetComponent<ZombieHealth>().BFHurt();
+        }
+
+        if (collision.CompareTag("Minotaur"))
+        {
+            collision.GetComponent<MinotaurHealth>().Hurt();
+        }
+
+        if (collision.CompareTag("Crab"))
+        {
+            collision.GetComponent<HealthBarBoss>().hp -= 20;
+            collision.GetComponent<HealthBarBoss>().Die();
         }
     }
 }

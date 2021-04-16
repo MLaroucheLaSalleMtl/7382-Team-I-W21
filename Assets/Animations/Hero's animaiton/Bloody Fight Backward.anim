@@ -67,7 +67,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Weapon/Bloody Fight Effect Backward
+    path: 'Weapon/BloodyFight Backward '
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves:
@@ -86,7 +86,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 923300372
+      path: 1233524230
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -220,7 +220,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Weapon/Bloody Fight Effect Backward
+    path: 'Weapon/BloodyFight Backward '
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []

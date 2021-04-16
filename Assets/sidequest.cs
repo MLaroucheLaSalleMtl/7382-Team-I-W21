@@ -16,9 +16,18 @@ public class sidequest : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+        //if(collision.CompareTag("Sword"))
+        //{
+            //Debug.Log("Test");
+            //Destroy(gameObject);
+        //}
+    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.CompareTag("Sword"))
+        if (collision.gameObject.tag==("Sword"))
         {
             Debug.Log("Test");
             //Destroy(gameObject);

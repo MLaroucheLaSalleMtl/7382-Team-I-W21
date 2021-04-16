@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
-  fireBall: {fileID: 2353022937292326096, guid: ad22e8dd893b35c49b756217e63e7d0a, type: 3}
+  fireBall: {fileID: 2548142286903817629}
   fireBallEx: {fileID: 3258228688158767520, guid: f4474de2e1a12294a889f9557c570753, type: 3}
   firePoint: {fileID: 0}
   rb: {fileID: 2548142286903817622}
